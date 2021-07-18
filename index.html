@@ -1,23 +1,39 @@
 ---
 layout: default
-title: Homepage
+title: home page 
+news:
+ - title: Kayaking 
+   description: One day kayaking event 
+   date: 14th March
+   category: promo
+   url: https://www.sale.com     
+ - title: Kayak Race  
+   description: Annual Kayak Race
+   date: 15th March 
+   category: race
+   url: https://www.sale.com        
+ - title: Kayaking Lessons 
+   description: Learn to kayak 
+   date: 16th March
+   category: lessons
+   url: https://www.sale.com  
 ---
 
-<section>
-    <div class="card">
-        <h2> Apple </h2>
-        <p> The best fruit</p>
+<section class="padded bg-featured grid-spaceAround latest-news">
+    {% for item in page.news %}
+  <!-- First Card    -->
+    <div class="col-4_xs-8">
+      <div class="card">
+        <div class="bg-image">
+          <span> {{item.category}} </span>
+        </div>
+        <div class="post-info">
+          <p class="date"> {{item.date}} </p>
+          <h3> {{item.title}} </h3>
+          <p> {{item.description}} </p>
+          <a href="{{item.url}}"> Find out more &nbsp;&#10141;</a>
+        </div> 
+      </div>
     </div>
-    <div class="card">
-        <h2> Pineapple </h2>
-        <p> Info here </p>
-    </div>
-    <div class="card">
-        <h2> Banana</h2>
-        <p> The best fruit</p>
-    </div>
-    <div class="card">
-        <h2> Mango </h2>
-        <p> The best fruit</p>
-    </div>
-</section>
+    {% endfor %}
+  </section>
